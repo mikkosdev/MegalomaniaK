@@ -3,10 +3,13 @@
  */
 package megalomaniak;
 
+import org.megalomaniak.Megalomaniak;
+import org.megalomaniak.MegalomaniakServer;
+
 public class App {
     public static void main(String[] args) {
         System.out.println("Starting Megalomaniak server...");
-        MegalomaniakServer server = Megalomaniak.createServer();
+        MegalomaniakServer server = Megalomaniak.createServer(8080);
         // server.Start();
         // System.out.println("Megalomaniak server started.");
     }

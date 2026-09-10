@@ -1,4 +1,4 @@
-package megalomaniak;
+package org.megalomaniak;
 
 public class MegalomaniakClient {
 

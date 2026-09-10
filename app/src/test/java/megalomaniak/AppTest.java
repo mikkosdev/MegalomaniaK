@@ -3,6 +3,8 @@
  */
 package megalomaniak;
 
+import org.megalomaniak.Megalomaniak;
+import org.megalomaniak.MegalomaniakClient;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -11,27 +13,18 @@ import org.junit.jupiter.api.TestInstance.Lifecycle;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import java.io.IOException;
-
 @TestInstance(Lifecycle.PER_CLASS)
 class AppTest {
 
     private MegalomaniakClient client;
-    private MegalomaniakServer server;
 
     @BeforeAll
-    public void setup() throws IOException {
+    public void setup() {
         client = Megalomaniak.createClient();
-        server = Megalomaniak.createServer();
     }
 
     @Test
     void callExistingEndpoint() {
         // client.CallEndpoint("/api/players", null);
-    }
-
-    @AfterAll
-    public void tearDown() {
-
     }
 }

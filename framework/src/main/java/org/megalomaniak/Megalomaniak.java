@@ -1,4 +1,4 @@
-package megalomaniak;
+package org.megalomaniak;
 
 /**
  * Factory class for creating Megalomaniak clients and servers.
@@ -9,7 +9,7 @@ public class Megalomaniak {
         return new MegalomaniakClient();
     }
 
-    public static MegalomaniakServer createServer() {
-        return new MegalomaniakServer();
+    public static MegalomaniakServer createServer(int port) {
+        return new MegalomaniakServer(port);
     }
 }
