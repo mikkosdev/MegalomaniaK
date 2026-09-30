@@ -26,7 +26,7 @@ Nodes have two socket listeners:
 
 ## Actor
 
-`Actor` is the basic unit of implementation where something that needs to be tracked, or messaged is given a representation as an actor.
+`AbstractActor` is the basic unit of implementation where something that needs to be tracked, or messaged is given a representation as an actor.
 
 Some common actors could be:
 
