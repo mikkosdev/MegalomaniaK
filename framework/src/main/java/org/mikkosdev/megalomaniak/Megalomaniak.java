@@ -1,4 +1,4 @@
-package org.megalomaniak;
+package org.mikkosdev.megalomaniak;
 
 /**
  * Factory class for creating Megalomaniak clients and servers.

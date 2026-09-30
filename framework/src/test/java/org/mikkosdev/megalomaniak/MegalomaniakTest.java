@@ -1,4 +1,4 @@
-package org.megalomaniak;
+package org.mikkosdev.megalomaniak;
 
 import static org.junit.jupiter.api.Assertions.assertInstanceOf;
 import static org.junit.jupiter.api.Assertions.assertThrows;

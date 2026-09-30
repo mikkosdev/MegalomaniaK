@@ -1,4 +1,4 @@
-package org.megalomaniak;
+package org.mikkosdev.megalomaniak;
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;

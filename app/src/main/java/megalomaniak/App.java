@@ -3,8 +3,8 @@
  */
 package megalomaniak;
 
-import org.megalomaniak.Megalomaniak;
-import org.megalomaniak.MegalomaniakServer;
+import org.mikkosdev.megalomaniak.Megalomaniak;
+import org.mikkosdev.megalomaniak.MegalomaniakServer;
 
 public class App {
     public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package org.megalomaniak.core;
+package org.mikkosdev.megalomaniak.core;
 
 import org.mikkosdev.mediatorj.container.AddressableObject;
 

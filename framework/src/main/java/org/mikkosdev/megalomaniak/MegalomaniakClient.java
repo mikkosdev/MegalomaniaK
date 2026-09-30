@@ -1,4 +1,4 @@
-package org.megalomaniak;
+package org.mikkosdev.megalomaniak;
 
 public class MegalomaniakClient {
 
