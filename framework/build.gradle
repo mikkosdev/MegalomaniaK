@@ -5,3 +5,41 @@
 plugins {
     id 'buildlogic.java-library-conventions'
 }
+
+configurations {
+    mockitoAgent
+}
+
+dependencies {
+    implementation("org.slf4j:slf4j-api:2.0.19")
+
+    // Testing
+    testImplementation("ch.qos.logback:logback-classic:1.5.15")
+
+    // See libs.versions.toml for Mockito versions
+    testImplementation(libs.mockito)
+    mockitoAgent(libs.mockito) {
+        transitive = false
+    }
+}
+
+// Required for Mockito
+abstract class MockitoAgentProvider implements CommandLineArgumentProvider {
+    @InputFiles
+    @PathSensitive(PathSensitivity.RELATIVE)
+    abstract ConfigurableFileCollection getAgentJar()
+
+    @Override
+    Iterable<String> asArguments() {
+        ["-javaagent:${agentJar.asPath}"]
+    }
+}
+
+// Required for Mockito
+tasks {
+    test {
+        jvmArgumentProviders.add(objects.newInstance(MockitoAgentProvider).tap {
+            agentJar.from(configurations.mockitoAgent)
+        })
+    }
+}

@@ -1,5 +1,6 @@
 package org.mikkosdev.megalomaniak.core;
 
+import org.mikkosdev.mediatorj.IRequest;
 import org.mikkosdev.mediatorj.container.Container;
 
 import java.util.UUID;
@@ -10,6 +11,10 @@ public class Node {
 
     public Object getActor(UUID uuid) {
         return new AbstractActor() {
+            @Override
+            public void processMessage(IRequest request) {
+                // Pending
+            }
         };
     }
 }
