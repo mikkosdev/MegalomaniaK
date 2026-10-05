@@ -9,7 +9,7 @@ public class Megalomaniak {
         return new MegalomaniakClient();
     }
 
-    public static MegalomaniakServer createServer(int port) {
-        return new MegalomaniakServer(port);
+    public static MegalomaniakServer createServer(int nodePort, int clusterPort) {
+        return new MegalomaniakServer(nodePort, clusterPort);
     }
 }

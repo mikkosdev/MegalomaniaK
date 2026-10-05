@@ -46,6 +46,10 @@ public abstract class AbstractActor implements Runnable {
         return inbox.size();
     }
 
+    public void registerObserver(AbstractObserver observer) {
+        observers.add(observer);
+    }
+
     protected void notifyObservers() {
         observers.forEach((o) -> {
             o.sendNotification();

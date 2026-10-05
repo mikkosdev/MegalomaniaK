@@ -69,4 +69,8 @@ public class ActorTest {
         // Check that message was processed
         Mockito.verify(myActorSpy).processMessage(any(IRequest.class));
     }
+
+    @Test void testSomething() {
+        assertTrue(true);
+    }
 }

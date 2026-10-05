@@ -9,7 +9,7 @@ import org.mikkosdev.megalomaniak.MegalomaniakServer;
 public class App {
     public static void main(String[] args) {
         System.out.println("Starting Megalomaniak server...");
-        MegalomaniakServer server = Megalomaniak.createServer(8080);
+        MegalomaniakServer server = Megalomaniak.createServer(8080, 8088);
         // server.Start();
         // System.out.println("Megalomaniak server started.");
     }
