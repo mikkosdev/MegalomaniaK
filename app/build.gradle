@@ -18,6 +18,9 @@ repositories {
 dependencies {
     implementation project(':framework')
 
+    // Testing
+    implementation("ch.qos.logback:logback-classic:1.5.15")
+
     // Use JUnit Jupiter for testing.
     testImplementation libs.junit.jupiter
 
