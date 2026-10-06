@@ -7,17 +7,25 @@ import org.slf4j.LoggerFactory;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 import java.util.concurrent.ConcurrentLinkedQueue;
 
 public abstract class AbstractActor implements Runnable {
 
     protected final Logger logger = LoggerFactory.getLogger(AbstractActor.class);
+
+    protected UUID uuid;
     protected List<AbstractObserver> observers = new ArrayList<>();
     protected ConcurrentLinkedQueue<IRequest> inbox = new ConcurrentLinkedQueue<>();
     protected Thread thread;
 
     public AbstractActor() {
         logger.debug("In AbstractActor()");
+        this.uuid = UUID.randomUUID();
+    }
+
+    public AbstractActor(UUID uuid) {
+        this.uuid = uuid;
     }
 
     @Override
