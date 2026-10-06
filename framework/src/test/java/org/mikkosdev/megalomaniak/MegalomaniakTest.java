@@ -13,6 +13,14 @@ class MegalomaniakTest {
     }
 
     @Test
+    void createClientReturnsMegalomaniakServer() {
+        int nodePort = 8080;
+        int clusterPort = 8088;
+
+        assertInstanceOf(MegalomaniakServer.class, Megalomaniak.createServer(nodePort, clusterPort));
+    }
+
+    @Test
     void callEndpointIsNotImplementedYet() {
         MegalomaniakClient client = Megalomaniak.createClient();
 

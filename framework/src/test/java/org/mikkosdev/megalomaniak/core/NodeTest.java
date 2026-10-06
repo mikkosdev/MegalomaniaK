@@ -1,14 +1,11 @@
-package org.mikkosdev.megalomaniak;
+package org.mikkosdev.megalomaniak.core;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mikkosdev.mediatorj.IRequest;
-import org.mikkosdev.megalomaniak.core.AbstractActor;
-import org.mikkosdev.megalomaniak.core.Node;
 
 import java.util.concurrent.CompletableFuture;
-import java.util.concurrent.ExecutionException;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mikkosdev.megalomaniak.util.ConcurrencyUtils.await;

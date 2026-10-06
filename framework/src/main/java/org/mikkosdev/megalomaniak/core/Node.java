@@ -42,12 +42,12 @@ public class Node {
     }
 
     // Placeholder method for messages coming from clients
-    public void handleSocketMessage() {
-
+    public void handleNodeMessage(String data) {
+        logger.debug("handleNodeMessage called");
     }
 
     // Placeholder method for messages coming from other cluster nodes
-    public void handleClusterMessage() {
-
+    public void handleClusterMessage(String data) {
+        logger.debug("handleClusterMessage called");
     }
 }
