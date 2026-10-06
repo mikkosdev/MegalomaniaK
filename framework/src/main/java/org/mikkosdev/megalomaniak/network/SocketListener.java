@@ -1,6 +1,5 @@
 package org.mikkosdev.megalomaniak.network;
 
-import org.mikkosdev.megalomaniak.core.Node;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -39,7 +38,7 @@ public class SocketListener {
                 BufferedReader br = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
                 String resp = null;
                 while ((resp = br.readLine()) != null) {
-                    logger.debug(resp);
+                    //logger.debug(resp);
                     handlerMethodRef.accept(resp);
                 }
             } catch (IOException e) {

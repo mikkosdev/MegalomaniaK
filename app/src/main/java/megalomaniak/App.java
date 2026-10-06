@@ -5,12 +5,15 @@ package megalomaniak;
 
 import org.mikkosdev.megalomaniak.Megalomaniak;
 import org.mikkosdev.megalomaniak.MegalomaniakServer;
+import org.mikkosdev.megalomaniak.core.AbstractNode;
 
 public class App {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         System.out.println("Starting Megalomaniak server...");
-        MegalomaniakServer server = Megalomaniak.createServer(8080, 8088);
-        // server.Start();
-        // System.out.println("Megalomaniak server started.");
+
+        AbstractNode node = new MyNode();
+        MegalomaniakServer server = Megalomaniak.createServer(8080, 8088, node);
+        server.setNode(node);   // This is not necessary, but here for completeness
+        server.start();
     }
 }

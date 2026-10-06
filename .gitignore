@@ -106,3 +106,7 @@ local.properties
 
 # Visual Studio Code
 .vscode/
+
+# Draw.io
+*.drawio.bkp
+*.drawio.dtmp

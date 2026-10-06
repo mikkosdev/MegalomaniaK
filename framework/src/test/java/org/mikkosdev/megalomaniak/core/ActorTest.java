@@ -15,9 +15,18 @@ public class ActorTest {
 
     protected final Logger logger = LoggerFactory.getLogger(ActorTest.class);
 
-    private Node node;
+    private AbstractNode myNode;
     private MyActor myActor;
     private MyRequest myRequest;
+
+    public class MyNode extends AbstractNode {
+        protected final Logger logger = LoggerFactory.getLogger(AbstractNode.class);
+
+        @Override
+        public void handleNodeMessage(String data) {
+            logger.debug("MyNode.handleNodeMessage()");
+        }
+    }
 
     class MyActor extends AbstractActor {
         public MyActor() {
@@ -38,14 +47,14 @@ public class ActorTest {
 
     @BeforeEach
     public void setUp() {
-        node = new Node();
+        myNode = new MyNode();
         myRequest = new MyRequest();
         myActor = new MyActor();
     }
 
     @AfterEach
     public void tearDown() {
-        node = null;
+        myNode = null;
     }
 
     @Test

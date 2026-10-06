@@ -1,31 +1,24 @@
 package org.mikkosdev.megalomaniak;
 
-import org.mikkosdev.megalomaniak.core.Node;
+import org.mikkosdev.megalomaniak.core.AbstractNode;
 import org.mikkosdev.megalomaniak.network.SocketListener;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.net.ServerSocket;
-import java.net.Socket;
-import java.util.function.Consumer;
-
 public class MegalomaniakServer {
 
     protected final Logger logger = LoggerFactory.getLogger(MegalomaniakServer.class);
-    private Node node = null;
+    private AbstractNode node = null;
     private int nodePort;
     private int clusterPort;
 
-    public MegalomaniakServer(int nodePort, int clusterPort, Node node) {
+    public MegalomaniakServer(int nodePort, int clusterPort, AbstractNode node) {
         this.node = node;
         this.nodePort = nodePort;
         this.clusterPort = clusterPort;
     }
 
-    public void setNode(Node node) {
+    public void setNode(AbstractNode node) {
         this.node = node;
     }
 

@@ -4,6 +4,8 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mikkosdev.mediatorj.IRequest;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -12,7 +14,16 @@ import static org.mikkosdev.megalomaniak.util.ConcurrencyUtils.await;
 
 public class NodeTest {
 
-    private Node node;
+    private AbstractNode myNode;
+
+    public class MyNode extends AbstractNode {
+        protected final Logger logger = LoggerFactory.getLogger(AbstractNode.class);
+
+        @Override
+        public void handleNodeMessage(String data) {
+            logger.debug("MyNode.handleNodeMessage()");
+        }
+    }
 
     class MyActor extends AbstractActor {
         public MyActor() {
@@ -27,20 +38,20 @@ public class NodeTest {
 
     @BeforeEach
     public void setUp() {
-        node = new Node();
+        myNode = new MyNode();
     }
 
     @AfterEach
     public void tearDown() {
-        node = null;
+        myNode = null;
     }
 
     @Test
     public void testGettingAnActor() {
         var actor = new MyActor();
-        var uuid = node.addActor(actor);
+        var uuid = myNode.addActor(actor);
 
-        CompletableFuture<AbstractActor> actorFuture = node.getActor(uuid);
+        CompletableFuture<AbstractActor> actorFuture = myNode.getActor(uuid);
         MyActor fetchedActor = (MyActor) await(actorFuture);
 
         assertNotNull(fetchedActor);

@@ -9,14 +9,14 @@ import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-public abstract class Node {
+public abstract class AbstractNode {
 
-    protected final Logger logger = LoggerFactory.getLogger(Node.class);
+    protected final Logger logger = LoggerFactory.getLogger(AbstractNode.class);
     private ExecutorService executorService;
     private Container container;
     private AbstractActor testActor;
 
-    public Node() {
+    public AbstractNode() {
         executorService = Executors.newVirtualThreadPerTaskExecutor();
     }
 
