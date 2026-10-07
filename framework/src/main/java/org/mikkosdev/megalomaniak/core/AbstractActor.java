@@ -1,7 +1,7 @@
 package org.mikkosdev.megalomaniak.core;
 
 import org.mikkosdev.mediatorj.IRequest;
-import org.mikkosdev.megalomaniak.observer.AbstractObserver;
+import org.mikkosdev.megalomaniak.observer.IObserver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -15,7 +15,7 @@ public abstract class AbstractActor implements Runnable {
     protected final Logger logger = LoggerFactory.getLogger(AbstractActor.class);
 
     protected UUID uuid;
-    protected List<AbstractObserver> observers = new ArrayList<>();
+    protected List<IObserver> observers = new ArrayList<>();
     protected ConcurrentLinkedQueue<IRequest> inbox = new ConcurrentLinkedQueue<>();
     protected Thread thread;
 
@@ -54,7 +54,7 @@ public abstract class AbstractActor implements Runnable {
         return inbox.size();
     }
 
-    public void registerObserver(AbstractObserver observer) {
+    public void registerObserver(IObserver observer) {
         observers.add(observer);
     }
 
