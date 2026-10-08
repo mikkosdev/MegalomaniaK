@@ -30,6 +30,9 @@ replay_pid*
 # Ignore Gradle build output directory
 build
 
+# Ignore Maven build output directory
+target/
+
 # Created by https://www.toptal.com/developers/gitignore/api/eclipse
 # Edit at https://www.toptal.com/developers/gitignore?templates=eclipse
 

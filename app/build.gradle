@@ -50,3 +50,34 @@ tasks.named('test') {
     // Use JUnit Platform for unit tests.
     useJUnitPlatform()
 }
+
+testing {
+    suites {
+        integrationTest(JvmTestSuite) {
+            useJUnitJupiter(libs.versions.junit.jupiter.get())
+
+            dependencies {
+                implementation project()
+                implementation platform("org.junit:junit-bom:${libs.versions.junit.jupiter.get()}")
+            }
+
+            configurations.named(sources.implementationConfigurationName) {
+                extendsFrom(configurations.testImplementation)
+            }
+        }
+    }
+}
+
+tasks.named('check') {
+    dependsOn testing.suites.integrationTest
+}
+
+tasks.withType(Test).configureEach {
+    // IntelliJ's Gradle runner builds the results tree only from test events.
+    // An up-to-date task emits none, so the tree stays empty on a rerun.
+    if (gradle.startParameter.taskRequests.any { request ->
+        request.args.any { it == '--tests' || it.startsWith('--tests=') }
+    }) {
+        outputs.upToDateWhen { false }
+    }
+}

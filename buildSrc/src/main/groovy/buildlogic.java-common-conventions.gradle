@@ -24,7 +24,7 @@ dependencies {
     // Use JUnit Jupiter for testing.
     testImplementation 'org.junit.jupiter:junit-jupiter:5.11.3'
 
-    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher:1.11.3'
 }
 
 // Apply a specific Java toolchain to ease working on different environments.
@@ -37,4 +37,35 @@ java {
 tasks.named('test') {
     // Use JUnit Platform for unit tests.
     useJUnitPlatform()
+}
+
+testing {
+    suites {
+        integrationTest(JvmTestSuite) {
+            useJUnitJupiter('5.11.3')
+
+            dependencies {
+                implementation project()
+                implementation platform('org.junit:junit-bom:5.11.3')
+            }
+
+            configurations.named(sources.implementationConfigurationName) {
+                extendsFrom(configurations.testImplementation)
+            }
+        }
+    }
+}
+
+tasks.named('check') {
+    dependsOn testing.suites.integrationTest
+}
+
+tasks.withType(Test).configureEach {
+    // IntelliJ's Gradle runner builds the results tree only from test events.
+    // An up-to-date task emits none, so the tree stays empty on a rerun.
+    if (gradle.startParameter.taskRequests.any { request ->
+        request.args.any { it == '--tests' || it.startsWith('--tests=') }
+    }) {
+        outputs.upToDateWhen { false }
+    }
 }
