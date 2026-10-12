@@ -1,4 +1,4 @@
-package megalomaniak;
+package exampleapp;
 
 import org.mikkosdev.megalomaniak.core.AbstractNode;
 import org.slf4j.Logger;

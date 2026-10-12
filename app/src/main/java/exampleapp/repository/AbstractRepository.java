@@ -1,4 +1,4 @@
-package megalomaniak.repository;
+package exampleapp.repository;
 
 public abstract class AbstractRepository {
 }

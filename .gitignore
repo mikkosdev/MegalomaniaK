@@ -113,3 +113,6 @@ local.properties
 # Draw.io
 *.drawio.bkp
 *.drawio.dtmp
+
+# Azurite
+__azurite_db_*

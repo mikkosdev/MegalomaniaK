@@ -1,4 +1,4 @@
-package megalomaniak.actor;
+package exampleapp.actor;
 
 import org.mikkosdev.mediatorj.IRequest;
 import org.mikkosdev.megalomaniak.core.AbstractActor;

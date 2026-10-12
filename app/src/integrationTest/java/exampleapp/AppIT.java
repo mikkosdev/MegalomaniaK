@@ -1,4 +1,4 @@
-package megalomaniak;
+package exampleapp;
 
 import org.junit.jupiter.api.Test;
 

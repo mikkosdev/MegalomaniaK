@@ -2,5 +2,6 @@ package org.mikkosdev.megalomaniak.persistence;
 
 public interface NodeWriter {
 
-    public void writeStatus();
+    public ClusterStatus readClusterStatus();
+    public void writeNodeStatus();
 }

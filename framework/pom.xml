@@ -14,10 +14,30 @@
     <name>MegalomaniaK Framework</name>
     <description>Core library for the MegalomaniaK server.</description>
 
+    <licenses>
+        <license>
+            <name>GNU Affero General Public License, Version 3</name>
+            <url>https://www.gnu.org/licenses/agpl-3.0.txt</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
     <properties>
         <maven.source.skip>false</maven.source.skip>
         <maven.javadoc.skip>false</maven.javadoc.skip>
     </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.azure</groupId>
+                <artifactId>azure-sdk-bom</artifactId>
+                <version>>1.3.8</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
     <dependencies>
         <dependency>
@@ -32,6 +52,16 @@
             <groupId>ch.qos.logback</groupId>
             <artifactId>logback-classic</artifactId>
             <scope>test</scope>
+        </dependency>
+
+        <!-- Azure dependencies for node writers -->
+        <dependency>
+            <groupId>com.azure</groupId>
+            <artifactId>azure-cosmos</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.azure</groupId>
+            <artifactId>azure-storage-blob</artifactId>
         </dependency>
     </dependencies>
 </project>
