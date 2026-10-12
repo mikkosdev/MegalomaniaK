@@ -2,7 +2,7 @@
 
 ![Java](https://img.shields.io/badge/Java-17+-blue?logo=openjdk&logoColor=white)
 ![Gradle](https://img.shields.io/badge/build-Gradle-blue)
-![License](https://img.shields.io/badge/License-GPLv3-red.svg)
+![License](https://img.shields.io/badge/License-AGPLv3-purple.svg)
 
 Experimental virtual actor model framework for Java.
 
